@@ -1,0 +1,20 @@
+﻿@page
+@model RazorPages.Pages.RazorWorkModel
+@{
+    string contect_i = "i";
+}
+@for (int i = 1; i < 6; i++)
+{
+
+    if (i % 2 == 1)
+    {
+        <p style="color:blue;text-align:center;border-width:5px">@(contect_i )</p>
+        contect_i = contect_i + "ii";
+    }
+    else
+    {
+        <p style="color:red;text-align:center;border-width:5px">@(contect_i )</p>
+        contect_i = contect_i + "ii";
+    }
+}
+

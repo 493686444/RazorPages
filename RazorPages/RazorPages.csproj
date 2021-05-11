@@ -4,4 +4,11 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\Log\Off\" />
+    <Folder Include="Pages\Log\On\" />
+    <Folder Include="Pages\Register\" />
+    <Folder Include="Pages\Article\" />
+  </ItemGroup>
+
 </Project>
