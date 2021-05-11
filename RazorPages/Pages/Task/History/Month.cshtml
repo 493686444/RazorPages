@@ -1,0 +1,57 @@
+﻿@page
+@model RazorPages.Pages.Task.History.MonthModel
+@{
+    DateTime datetime = new DateTime(2021, 5, 1);
+}
+@switch (datetime.DayOfWeek)
+{
+    case DayOfWeek.Sunday:
+        break;
+    case DayOfWeek.Monday:
+        datetime = datetime.AddDays(-1);
+        break;
+    case DayOfWeek.Tuesday:
+        datetime = datetime.AddDays(-2);
+        break;
+    case DayOfWeek.Wednesday:
+        datetime = datetime.AddDays(-3);
+        break;
+    case DayOfWeek.Thursday:
+        datetime = datetime.AddDays(-4);
+        break;
+    case DayOfWeek.Friday:
+        datetime = datetime.AddDays(-5);
+        break;
+    case DayOfWeek.Saturday:
+        datetime = datetime.AddDays(-6);
+        break;
+    default:
+        break;
+}
+<label>@datetime.Year 年 @datetime.Month 月</label>
+<table>
+    <tr>
+        <th>Sunday</th>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+        <th>Saturday</th>
+    </tr>
+    @for (int i = 0; i < 5; i++)
+    {
+        <tr>
+            @for (int j = 0; j < 7; j++)
+            {
+                <th>@datetime.Day</th>
+                datetime = datetime.AddDays(1);
+            }
+        </tr>
+    }
+
+
+
+
+
+</table>
