@@ -5,10 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\Log\Off\" />
-    <Folder Include="Pages\Log\On\" />
+    <Compile Remove="Pages\Article\**" />
+    <Content Remove="Pages\Article\**" />
+    <EmbeddedResource Remove="Pages\Article\**" />
+    <None Remove="Pages\Article\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Pages\Register\" />
-    <Folder Include="Pages\Article\" />
   </ItemGroup>
 
 </Project>

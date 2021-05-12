@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace RazorPages.Pages
+namespace RazorPages.Pages.Entity.User
 {
-    public class RazorWorkModel : PageModel
+    public class Personal_dateModel : PageModel
     {
         public void OnGet()
         {

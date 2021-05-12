@@ -1,0 +1,119 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<!--右侧 侧边栏-->
+<main class="container ">
+    <div class="row">
+
+        <article class="col-md-8">
+            @RenderBody()
+        </article>
+
+        <aside class="col-md-4 ">
+            <!--侧01-->
+            <div style="border:1px dashed #eee;">
+                <div style="font-size:24px;margin:15px 0px 20px 0px">
+                    <span class="fa fa-tags "> </span>
+                    关键字
+                </div>
+                <hr />
+                <a href="#">
+                    <span class="badge black-block black-box" style=" font-size: 20.5px; ">
+                        操作系统
+                    </span>
+                </a>
+                <a href="#">
+                    <span class="badge black-block black-box" style=" font-size: 20.5px; ">
+                        html
+                    </span>
+                </a>
+         
+                <hr />
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="直接输入关键字查找" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <span class="input-group-text" id="basic-addon2"><span class="fa fa-search"></span></span>
+                        <button type="button" class="btn btn-outline-secondary">
+                            <span class="fa fa-random"></span>
+                            换一批
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!--侧02-->
+            <div style="border:1px dashed #eee;margin-top:20px">
+
+                <ul class="nav nav-tabs  nav-fill">
+                    <li class="nav-item">
+                        <a class="nav-link active aside-nav" href="#"><span class="fa fa-eye"></span>每日督促</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="color:red;border:1px dashed #ddd" class="nav-link aside-nav" href="#"><span class="fa fa-heart"></span> 排行榜</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="border: 1px dashed #ddd" class="nav-link aside-nav" href="#"><span class="fa fa-user-circle-o"></span>新注册</a>
+                    </li>
+                </ul>
+                <div>
+                    <p style="margin:30px 100px 30px 10px">（◐ˍ◑）你还没有登录哟！未登录用户无权查看该页面。马上<a href="#">登录</a> 或<a href="#">注册</a> 吧。</p>
+                </div>
+            </div>
+            <!--侧03 免费广告位置-->
+            <div style="border:1px dashed #eee;margin-top:20px">
+  
+                <span style="width: 100em;">
+                    <span class="badge figure-black-box" style=" font-size: 20.5px; ">3</span>
+                    <a href="#" style="color:#8a6d3e;">免费广告位，抢到就是赚到！</a>
+                </span>
+                <br />
+
+                <span style="width: 100em;">
+                    <span class="badge figure-black-box" style=" font-size: 20.5px; ">4</span>
+                    <a href="#" style="color:#8a6d3e;">免费广告位，抢到就是赚到！</a>
+                </span>
+                <br />
+
+                <span style="width: 100em;">
+                    <span class="badge figure-black-box" style=" font-size: 20.5px; ">5</span>
+                    本站主机由<a href="#">西部数码</a>提供
+                </span>
+                
+                <p style="text-align:right;"> <a href="#" style="color:rgb(119 119 119);">广告</a></p>
+            </div>
+
+        </aside>
+
+    </div>
+
+
+    <!--页码 内容-->
+    <div class="row">
+        <div class="col-md-8">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                    <li class="page-item"><a class="page-link" href="#">6</a></li>
+                    <li class="page-item"><a class="page-link" href="#">7</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <hr />
+</main>
+<!--侧边栏结束-->

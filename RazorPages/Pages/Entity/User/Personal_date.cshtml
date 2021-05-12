@@ -1,0 +1,139 @@
+﻿@page
+@model RazorPages.Pages.Entity.User.Personal_dateModel
+@{
+}
+
+<!--主要内容-->
+<div class="container ">
+
+    <h2>
+        <span class="fa fa-user-circle-o " aria-hidden="true"></span>
+        个人资料
+    </h2><hr />
+
+    <!--主要内容-->
+    <main class="row">
+        <!--左侧登录栏-->
+        <div class="col-md-5">
+            <br />
+            <form method="post" action="/" enctype="multipart/form-data">
+                <!-- 头像 -->
+                <p>头像：（* 仅限jpg/png/gif）</p>
+                <input type="file" accept="image/*" name="icon" />
+
+                <div>
+                    <label>性别：</label>
+                    <label><input type="radio" name="gender" value="male" />男</label>
+                    <label><input type="radio" name="gender" value="female" />女</label>
+                </div>
+
+                <div>
+                    <label>生日：</label><br />
+
+                    <select name="year" ">
+                        <option selected>---</option>
+                        <option value="2005">2005</option>
+                        <option value="2004">2004</option>
+                        <option value="2003">2003</option>
+                        <option value="2002">2002</option>
+                        <option value="2001">2001</option>
+                        <option value="2000">2000</option>
+                        <option value="1999">1999</option>
+                        <option value="1998">1998</option>
+                        <option value="1997">1997</option>
+                        <option>1996</option>
+                        <option>1995</option>
+                        <option>1994</option>
+                    </select>
+                    年
+
+                    <select name=" month" ">
+                        <option selected>---</option>
+                        <option value="december">12</option>
+                        <option value="november">11</option>
+                        <option value="october">10</option>
+                        <option value="September">9</option>
+                        <option value="August ">8</option>
+                        <option value="July">7</option>
+                        <option value="June">6</option>
+                        <option value="May">5</option>
+                        <option value=" April">4</option>
+                        <option value="March">3</option>
+                        <option value="February">2</option>
+                        <option value="January">1</option>
+                    </select>月
+
+                    <select name="sign">
+                        <option selected>---</option>
+                        <option>狮子</option>
+                        <option>白羊</option>
+                        <option>金牛</option>
+                        <option>双子</option>
+                        <option>摩羯</option>
+                        <option>巨蟹</option>
+                        <option>处女</option>
+                        <option>水瓶</option>
+                        <option>天枰</option>
+                        <option>天蝎</option>
+                        <option>射手</option>
+                        <option>双鱼</option>
+                    </select>星座
+                </div>
+
+                <!--关键字：（* 使用空格分隔）-->
+                <div>
+                    <label>关键字：（* 使用空格分隔）</label><br />
+                    <select name="sky">
+                        <option>---1级---</option>
+                        <option>编程开发语言</option>
+                        <option>工具软件</option>
+                        <option>顾问咨询</option>
+                        <option>操作系统</option>
+                    </select>
+                    <select name="sky">
+                        <option>---2级---</option>
+                        <option>c#</option>
+                        <option>java</option>
+                        <option>python</option>
+                        <option>sql</option>
+                        <option>dhtml</option>
+                        <option>php</option>
+                        <option>c++</option>
+                        <option>c</option>
+                    </select>
+                    <input type="text" placeholder=" 自定义" />
+                </div>
+
+                <!--自我介绍-->
+                <div>
+                    <label>自我介绍</label><br />
+                    <textarea name="self-introduction" placeholder="简单介绍一下自己，字数不要过多"></textarea>
+                </div>
+
+                <input type="submit" value="提交" />
+            </form>
+        </div>
+
+
+
+        <!--说明部分（侧边栏）-->
+        <aside class="col-md-5">
+            <h3 style="color: #31708f;"><span class="fa fa-question-circle "></span>说明</h3>
+            <ol>
+                <li>头像仅接受jpg/png/gif格式，大小不超过256KB</li>
+                <li>头像图片的建议宽度为300像素左右，过宽或过窄都有可能失真。</li>
+                <li>自我介绍的字数不要超过255字。</li>
+            </ol>
+        </aside>
+    </main>
+
+    <!--右边留的空-->
+    <div class="col-md-2">
+    </div>
+
+    <hr />
+
+  
+</div>
+
+
