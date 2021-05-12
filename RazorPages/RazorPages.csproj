@@ -9,6 +9,7 @@
     <Folder Include="Pages\Log\On\" />
     <Folder Include="Pages\Register\" />
     <Folder Include="Pages\Article\" />
+    <Folder Include="Pages\Rests\" />
   </ItemGroup>
 
 </Project>
