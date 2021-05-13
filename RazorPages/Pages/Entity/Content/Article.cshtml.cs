@@ -14,8 +14,8 @@ namespace RazorPages.Pages.Entity.Content
         public Article article { get; set; } = new Article();
         public void OnGet()
         {
-            int id = Convert.ToInt32(Request.Query["id"][0]);
-            article = context.Articles.Find(id);
+            //int id = Convert.ToInt32(Request.Query["id"][0]);
+            //article = context.Articles.Find(id);
         }
     }
 }
