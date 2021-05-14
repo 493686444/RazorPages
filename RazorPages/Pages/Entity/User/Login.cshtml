@@ -11,9 +11,9 @@
     用户登录
 }
 <form action="/" method="get">
-
+        
     <label>用户名：（* 必填）</label>
-    <input class="form-control" type="text" name="username" value="用户名" placeholder="不是昵称，是登录用户名" />
+    <input class="form-control" type="text"  placeholder="不是昵称，是登录用户名" asp-for="UserName"/>
 
     <label>密码：（* 必填）</label>
     <input class="form-control" type="password" name="password" placeholder="不少于4个字符" />
