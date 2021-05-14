@@ -1,0 +1,27 @@
+﻿@page
+@model RazorPages.Pages.ArticleSingleModel
+@{
+    Layout = "_ContentSingle";
+}
+@section upTitle {
+    文章
+}
+
+<div>
+    <label>标题</label>
+    <p>
+        @Model.Article.Title
+    </p>
+    <label>时间</label>
+    <p>
+        @Model.Article.CreateTime
+    </p>
+    <label>内容</label>
+    <p>
+        @Model.Article.Body
+    </p>
+    <label>作者</label>
+    <p>
+        @Model.Article.Author
+    </p>
+</div>
