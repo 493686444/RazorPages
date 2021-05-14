@@ -1,81 +1,47 @@
 ﻿@page
 @model RazorPages.Pages.Entity.LoginModel
 @{
+    Layout = "_User";
 }
-<div class="container ">
-    <!--主要内容-->
+@section title {
+    <span class="fa fa-sign-in " aria-hidden="true"></span>
+    用户登录
+}
+@section upTitle {
+    用户登录
+}
+<form action="/" method="get">
 
-    <h2>
-        <span class="fa fa-sign-in " aria-hidden="true"></span>
-        用户登录
-    </h2>
+    <label>用户名：（* 必填）</label>
+    <input class="form-control" type="text" name="username" value="用户名" placeholder="不是昵称，是登录用户名" />
 
-    <hr />
+    <label>密码：（* 必填）</label>
+    <input class="form-control" type="password" name="password" placeholder="不少于4个字符" />
 
-    <!--主要内容-->
-    <main class="row">
-        <!--左侧登录栏-->
-        <div class="col-md-4">
-            <br />
-            <form action="/" method="get">
-                <div>
-                    <label>用户名：（* 必填）</label>
-                    <input class="form-control" type="text" name="username" value="用户名" placeholder="不是昵称，是登录用户名" />
-                </div>
-                <div>
-                    <label>密码：（* 必填）</label>
-                    <input class="form-control" type="password" name="password" placeholder="不少于4个字符" />
-                </div>
-                <div>
-                    <label>验证码：（* 必填）</label><br />
-                    <input style="width:80px; height:34px;margin-bottom:10px" class="form-control" type="text" name="VerificationCode" /><a href="/"></a>
-                </div>
-                <div class="submit">
-                    <input type="submit" class="btn btn-primary" value="提交">
-                    <label style="margin-left:16px;">
-                        <input type="checkbox" name="remember me" value="true" checked="">记住我
-                    </label>
-                    <span class="pull-right btn">
-                        <a href="/Password/Forget">(｡ŏ_ŏ) 忘了</a>
-                        <a href="/Register/Home?prepage=%2fArticle%2fPage-2" style="margin-left:10px;"><span class="fa fa-registered"></span> 注册</a>
-                    </span>
-                </div>
+    <label>验证码：（* 必填）</label><br />
+    <input style="width:80px; height:34px;margin-bottom:10px" class="form-control" type="text" name="VerificationCode" /><a href="/"></a>
 
-            </form>
-        </div>
-
-        <!--中间留的空-->
-        <div class="col-md-1">
-        </div>
-
-        <!--说明部分（侧边栏）-->
-        <aside class="col-md-5">
-            <h3 style="color: #31708f;"><span class="fa fa-question-circle "></span>说明</h3>
-            <ol>
-                <li>我们希望通过一起帮，能直接解决大家在电脑操作/软件使用/编程学习等方面的具体问题。</li>
-                <li>现在互联网远程技术（比如QQ桌面共享）已经非常成熟，当我们再遇到上述问题，如果别人能直接远程给予帮助，岂不是好？</li>
-                <li>当然，你也可以在你熟悉的领域去帮助别人。由此而形成我们这个“你帮他他帮我我帮你，大家一起帮”的网上互助社区平台。</li>
-                <li>公平起见，我们还引入了 帮帮点/币/豆 三级概念，以记录和衡量社区成员的收获和贡献。</li>
-                <li>赶快加入我们，赚取帮帮币吧！</li>
-            </ol>
-        </aside>
-
-
-        <!--右边留的空-->
-        <div class="col-md-2">
-        </div>
-
-    </main>
-
-    <hr />
-
-
-
-
-
-    <div style="position: absolute; top: 6em; right:114px; background-color: #7fffd4; padding: 5px 7px; border-bottom-left-radius: 6px">
-        <a href="#"><span class="fa fa-share"></span> 返回</a>
+    <div class="submit">
+        <input type="submit" class="btn btn-primary" value="提交">
+        <label style="margin-left:16px;">
+            <input type="checkbox" name="remember me" value="true" checked="">记住我
+        </label>
+        <span class="pull-right btn">
+            <a href="/Password/Forget">(｡ŏ_ŏ) 忘了</a>
+            <a href="/Register/Home?prepage=%2fArticle%2fPage-2" style="margin-left:10px;"><span class="fa fa-registered"></span> 注册</a>
+        </span>
     </div>
 
+</form>
 
-</div>
+
+@section aside {
+    <h3 style="color: #31708f;"><span class="fa fa-question-circle "></span>说明</h3>
+    <ol>
+        <li>我们希望通过一起帮，能直接解决大家在电脑操作/软件使用/编程学习等方面的具体问题。</li>
+        <li>现在互联网远程技术（比如QQ桌面共享）已经非常成熟，当我们再遇到上述问题，如果别人能直接远程给予帮助，岂不是好？</li>
+        <li>当然，你也可以在你熟悉的领域去帮助别人。由此而形成我们这个“你帮他他帮我我帮你，大家一起帮”的网上互助社区平台。</li>
+        <li>公平起见，我们还引入了 帮帮点/币/豆 三级概念，以记录和衡量社区成员的收获和贡献。</li>
+        <li>赶快加入我们，赚取帮帮币吧！</li>
+    </ol>
+}

@@ -1,8 +1,13 @@
 ﻿@{
     Layout = "_Layout";
 }
-
+@section upTitle{
+    @RenderSection("upTitle")
+}
 <!--右侧 侧边栏-->
+
+
+
 <main class="container ">
     <div class="row">
 
@@ -11,7 +16,36 @@
         </article>
 
         <aside class="col-md-4 ">
-            <!--侧01-->
+
+
+            <div zyf-widget-content="" class="widget clearfix">
+                <h4>
+                    <span class="fa fa-folder text-primary"></span>
+                    <a href="/">ASP.NET</a>
+                </h4>
+                <hr>
+                <div style="margin-bottom:10px; padding-left: 40px;">
+                    <h4>
+                        <span class="fa fa-folder text-primary"></span>
+                        <a href="/">MVC</a>
+                    </h4>
+                    <p>
+
+                    </p>
+                </div>
+                <div style="margin-bottom:10px; padding-left: 40px;">
+                    <h4>
+                        <span class="fa fa-folder text-primary"></span>
+                        <a href="/">Razor</a>
+                    </h4>
+                    <p>
+
+                    </p>
+                </div>
+                <a href="/"><span class="fa fa-hand-o-right"></span> 全部</a>
+            </div>
+
+
             <div style="border:1px dashed #eee;">
                 <div style="font-size:24px;margin:15px 0px 20px 0px">
                     <span class="fa fa-tags "> </span>
@@ -28,7 +62,7 @@
                         html
                     </span>
                 </a>
-         
+
                 <hr />
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="直接输入关键字查找" aria-label="Recipient's username" aria-describedby="basic-addon2">
@@ -42,7 +76,7 @@
                 </div>
             </div>
 
-            <!--侧02-->
+
             <div style="border:1px dashed #eee;margin-top:20px">
 
                 <ul class="nav nav-tabs  nav-fill">
@@ -60,9 +94,10 @@
                     <p style="margin:30px 100px 30px 10px">（◐ˍ◑）你还没有登录哟！未登录用户无权查看该页面。马上<a href="#">登录</a> 或<a href="#">注册</a> 吧。</p>
                 </div>
             </div>
+
             <!--侧03 免费广告位置-->
             <div style="border:1px dashed #eee;margin-top:20px">
-  
+
                 <span style="width: 100em;">
                     <span class="badge figure-black-box" style=" font-size: 20.5px; ">3</span>
                     <a href="#" style="color:#8a6d3e;">免费广告位，抢到就是赚到！</a>
@@ -79,7 +114,7 @@
                     <span class="badge figure-black-box" style=" font-size: 20.5px; ">5</span>
                     本站主机由<a href="#">西部数码</a>提供
                 </span>
-                
+
                 <p style="text-align:right;"> <a href="#" style="color:rgb(119 119 119);">广告</a></p>
             </div>
 
@@ -89,7 +124,8 @@
 
 
     <!--页码 内容-->
+
     @RenderSection("pages")
-  
+
 </main>
 <!--侧边栏结束-->

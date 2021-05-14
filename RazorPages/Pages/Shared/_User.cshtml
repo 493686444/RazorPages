@@ -1,0 +1,41 @@
+﻿@{
+    Layout = "_Layout";
+}
+@section upTitle{ 
+@RenderSection("upTitle")
+}
+<div style="position: absolute; top: 6em; right:114px; background-color: #7fffd4; padding: 5px 7px; border-bottom-left-radius: 6px">
+    <a href="#"><span class="fa fa-share"></span> 返回</a>
+</div>
+
+<div class="container ">
+
+    <h2>
+        @RenderSection("title")
+    </h2>
+
+    <hr />
+
+    <main class="row">
+
+        <div class="col-md-4">
+            @RenderBody()
+        </div>
+        <div class="col-md-1">
+
+        </div>
+        <aside class="col-md-5">
+            @RenderSection("aside")
+        </aside>
+
+        <div class="col-md-2">
+
+        </div>
+    </main>
+
+
+
+    <hr />
+
+
+</div>

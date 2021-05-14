@@ -1,9 +1,12 @@
-﻿@page "{pageIndex=0}"
-
-@model RazorPages.Pages.Entity.Content.ArticleModel
+﻿@page 
+@model RazorPages.Pages.ArticleListModel
 @{
-    Layout = "_Content";
+    Layout = "_ContentList";
 }
+@section upTitle {
+   文章列表
+}
+
 <!--左01-->
 @foreach (var item in Model.viewArticles)
 {
@@ -15,7 +18,7 @@
         <p style="font-size:14px" class="float-right">作者：<a style="font-size:14px" href="#">@item.Author </a></p>
         <br />
         <h5 class="n-margin-y">
-            <a href="#">@item.Title</a>
+            <a href="/Entity/Content/ArticleList?id=@item.Id ">@item.Title</a>
         </h5>
         <p class="n-margin-y">
             @item.Body
@@ -56,20 +59,20 @@
 
                     @*上一页*@
                     <li class="page-item">
-                        <a class="page-link" href="/Entity/Content/Article?pageIndex=@(Model.pageIndex-1)" aria-label="Previous">
+                        <a class="page-link" href="/Entity/Content/ArticleList?pageIndex=@(Model.pageIndex-1)" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
 
-                    @for (int i = 0; i <Math.Ceiling((decimal)Model.NewArticles.Count/2); i++)
+                    @for (int i = 0; i < Math.Ceiling((decimal)Model.NewArticles.Count / 4); i++)
                     {
                         <li class="page-item">
-                            <a class="page-link" href="/Entity/Content/Article?pageIndex=@i">@(i+1)</a>
+                            <a class="page-link" href="/Entity/Content/ArticleList?pageIndex=@i">@(i+1)</a>
                         </li>
-                    } 
+                    }
                     @*下一页*@
                     <li class="page-item">
-                        <a class="page-link" href="/Entity/Content/Article?pageIndex=@(Model.pageIndex+1)" aria-label="Next"> 
+                        <a class="page-link" href="/Entity/Content/ArticleList?pageIndex=@(Model.pageIndex+1)" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>

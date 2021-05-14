@@ -1,0 +1,36 @@
+﻿@page
+@model RazorPages.Pages.Entity.User.ContactWayModel
+@{
+    Layout = "_User";
+}
+@section title {
+    <span class="fa fa-sign-in " aria-hidden="true"></span>   @*小图标有待更新*@
+
+}
+@section upTitle {
+    修改联系方式
+}
+
+<form method="post" action="/">
+
+    <label>QQ：</label>
+    <input class="form-control" type="text" name="qq" placeholder="建议填写" />
+    <label>微信：</label>
+    <input class="form-control" type="text" name="wechet" placeholder="建议填写" />
+    <label>电话:</label>
+    <input class="form-control" type="text" name="wechet" placeholder="请谨慎的填写" />
+    <label>其他:</label>
+    <textarea class="form-control" cols="5" name="wechet" placeholder="此处可以补充"></textarea>
+
+</form>
+
+
+
+@section aside {
+    <h3 style="color: #31708f;"><span class="fa fa-question-circle "></span>说明</h3>
+    <ol>
+        <li>  因为联系方式会公开显示，我们不建议你填写电话号码，以免个人信息被泄露。</li>
+        <li>  所以我们推荐使用QQ/微信等网络通信方式。</li>
+        <li> 注意填写QQ作为联系方式时，不要忘了留下“添加好友”的验证条件</li>
+    </ol>
+}

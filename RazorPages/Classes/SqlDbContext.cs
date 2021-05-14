@@ -10,6 +10,9 @@ namespace RazorPages.Classes
     public class SqlDbContext:DbContext
     {
         public DbSet<Article> Articles { get; set; }
+        public DbSet<User> Users { set; get; }
+       
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -28,6 +31,7 @@ namespace RazorPages.Classes
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
             base.OnModelCreating(modelBuilder);
         }
     }
