@@ -1,95 +1,81 @@
-﻿@page
+﻿@page "{pageIndex=0}"
+
 @model RazorPages.Pages.Entity.Content.ArticleModel
 @{
     Layout = "_Content";
 }
 <!--左01-->
-@foreach (var item in Model.NewArticles)
+@foreach (var item in Model.viewArticles)
 {
-<div class="n-article-box">
-    <span class="text-muted">
-        <span class="fa fa-calendar"></span>
-        @item.CreateTime
-        参照结果:2021年03月11日 09点28分
-    </span>
-    <p style="font-size:14px" class="float-right">作者：<a style="font-size:14px" href="#">@item.Author 参照结果:叶飞</a></p>
-    <br />
-    <h5 class="n-margin-y">
-        <a href="#">@item.Title</a>
-    </h5>
-    <p class="n-margin-y">
-        @item.Body
-        参照结果: 文字：编码/解码计算机里面只有二进制，那文字是如何保存的呢？还是保存为二进制，比如：源栈欢迎你！
-        就有可能是：100101010101010101010101010111110100101100001000101010无论是写入（存储
-        器）还是（从存储器）读取，只需要制定一定转换规则就行了。比如：源 => 10010101，栈 => 010101
-        01，……规则可以分为两种：定长：每个字符都占固定位的长度，否则你没办法在一串二进制中分隔出一个一
-        个的字符，这样我们就只需要一个字符集 <a href="#" style="margin-left:0px">……</a>
-    </p>
-    暂时搁置:
-    <label class="fa fa-tags">关键字：</label>
-    <span class="n-badge">图像</span>
-    <span class="n-badge">编码</span>
-    <span class="n-badge">颜色</span>
-    <span class="n-badge">位图</span>
-    <span class="n-badge">矢量</span>
-    <!--评论 赞 踩-->
-    暂时搁置:
-    <div class="pull-right">
-        <a class="text-info" href="#">
-            <span class="fa fa-comments-o"></span>
-            <span>评论：</span>0
-        </a>
-        <a class="text-success" href="#">
-            <span class="fa fa-thumbs-o-up"></span>
-            <span>赞：</span>
-            <span>0</span>
-        </a>
-        <a class="text-muted" href="#">
-            <span class="fa fa-thumbs-o-down"></span>
-            <span>踩：</span>
-            <span>0</span>
-        </a>
+    <div class="n-article-box">
+        <span class="text-muted">
+            <span class="fa fa-calendar"></span>
+            @item.CreateTime
+        </span>
+        <p style="font-size:14px" class="float-right">作者：<a style="font-size:14px" href="#">@item.Author </a></p>
+        <br />
+        <h5 class="n-margin-y">
+            <a href="#">@item.Title</a>
+        </h5>
+        <p class="n-margin-y">
+            @item.Body
+            <a href="#" style="margin-left:0px">……</a>
+        </p>
+        暂时搁置:
+        <label class="fa fa-tags">关键字：</label>
+        <span class="n-badge">图像</span>
+        <span class="n-badge">编码</span>
+        <span class="n-badge">颜色</span>
+        <span class="n-badge">位图</span>
+        <span class="n-badge">矢量</span>
+        <!--评论 赞 踩-->
+        暂时搁置:
+        <div class="pull-right">
+            <a class="text-info" href="#">
+                <span class="fa fa-comments-o"></span>
+                <span>评论：</span>0
+            </a>
+            <a class="text-success" href="#">
+                <span class="fa fa-thumbs-o-up"></span>
+                <span>赞：</span>
+                <span>0</span>
+            </a>
+            <a class="text-muted" href="#">
+                <span class="fa fa-thumbs-o-down"></span>
+                <span>踩：</span>
+                <span>0</span>
+            </a>
+        </div>
     </div>
-</div>
 }
+@section pages {
+    <div class="row">
+        <div class="col-md-8">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
 
+                    @for (int i = 0; i <Math.Ceiling((decimal)Model.NewArticles.Count/2); i++)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" href="/Entity/Content/Article?pageIndex=@i">@(i+1)</a>
+                        </li>
+                    } 
+                    
+                    <li class="page-item">
+                        <a class="page-link" href="/Entity/Content/Article?pageIndex=@(Model.pageIndex+1)" aria-label="Next"> 
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
 
-
-<!--左02-->
-<div class="n-article-box">
-    <span class="text-muted">
-        <span class="fa fa-calendar"></span>
-        2021年03月07日 12点14分
-    </span>
-    <p style="font-size:14px" class="float-right">作者：<a style="font-size:14px" href="#">叶飞</a></p>
-    <br />
-    <h5 class="n-margin-y">
-        <a href="#">二进制：存储 / 运算 / 底层实现</a>
-    </h5>
-    <p class="n-margin-y">
-        这是最下面的部分
-        <a href="#" style="margin-left:0px">……</a>
-    </p>
-    <label class="fa fa-tags">关键字：</label>
-    <span class="n-badge">二进制</span>
-    <span class="n-badge">图像</span>
-    <span class="n-badge">门电路</span>
-    <!--评论 赞 踩-->
-    <div class="pull-right">
-        <a class="text-info" href="#">
-            <span class="fa fa-comments-o"></span>
-            <span>评论：</span>0
-        </a>
-        <a class="text-success" href="#">
-            <span class="fa fa-thumbs-o-up"></span>
-            <span>赞：</span>
-            <span>0</span>
-        </a>
-        <a class="text-muted" href="#">
-            <span class="fa fa-thumbs-o-down"></span>
-            <span>踩：</span>
-            <span>0</span>
-        </a>
+                </ul>
+            </nav>
+        </div>
     </div>
+    <hr />
 
-</div>
+}
