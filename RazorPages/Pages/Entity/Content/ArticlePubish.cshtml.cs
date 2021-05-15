@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace RazorPages.Pages
 {
-    public class PublishModel : PageModel
+    public class ArticlePublishModel: PageModel
     {
         public void OnGet()
         {

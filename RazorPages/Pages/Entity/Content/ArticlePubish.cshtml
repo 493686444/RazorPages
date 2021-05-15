@@ -1,5 +1,5 @@
 ﻿@page
-@model RazorPages.Pages.PublishModel
+@model RazorPages.Pages.ArticlePublishModel
 @{
     Layout = "_ContentCreate";
 }
@@ -18,4 +18,6 @@
     <input type="text" name="Title" placeholder="来一个醒目的标题吧" style="background-color: rgb(204, 232, 207);" class="form-control">
     <label>内容：（* 必填）</label>
     <input type="text" name="Content" style="background-color: rgb(204, 232, 207);" class="form-control">
+    <br/>
+    <input type="submit" value="发布为最新" class="btn btn-primary loading" >
 </form>
