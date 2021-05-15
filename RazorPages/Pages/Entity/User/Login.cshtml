@@ -10,15 +10,15 @@
 @section upTitle {
     用户登录
 }
-<form action="/" method="get">
+<form asp-page="/Pages/Entity/User/Login" method="post">
         
     <label>用户名：（* 必填）</label>
-    <input type="text"  asp-for="UserName" class="form-control"   placeholder="不是昵称，是登录用户名"/>
+    <input asp-for="NewUser.Name" class="form-control"   placeholder="不是昵称，是登录用户名"/>
 
     <label>密码：（* 必填）</label>
-    <input  type="password" name="password"  class="form-control"placeholder="不少于4个字符" />
+    <input  type="password" asp-for="NewUser.password"class="form-control"placeholder="不少于4个字符" />
 
-    <label>验证码：（* 必填）</label><br />
+    <label>验证码：（* 必填）</label><br />@*验证码暂时搁置*@
     <input  type="text" name="VerificationCode"  style="width:80px; height:34px;margin-bottom:10px" class="form-control"/><a href="/"></a>
 
     <div class="submit">

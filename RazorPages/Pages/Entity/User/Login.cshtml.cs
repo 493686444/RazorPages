@@ -10,8 +10,9 @@ namespace RazorPages.Pages.Entity
 {
     public class LoginModel : PageModel
     {
-        public string UserName { set; get;}
-        public string PassWord { set; get; }
+        [BindProperty]
+        public C.User NewUser { set; get; }
+
         public string AuthCode { set; get; }
        
         public C.SqlDbContext context { set; get; }
@@ -19,6 +20,10 @@ namespace RazorPages.Pages.Entity
         public void OnGet()
         {
 
+        }
+        public void OnPost() 
+        { 
+            
         }
     }
 }
