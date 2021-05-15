@@ -1,0 +1,21 @@
+﻿@page
+@model RazorPages.Pages.PublishModel
+@{
+    Layout = "_ContentCreate";
+}
+@section upTitle{
+    文章发布
+}
+
+<h2 class="page-header">
+    <span class="fa fa-pencil-square-o"></span>
+    文章发布
+</h2>
+<hr/>
+
+<form class="form-group">
+    <label>标题：（* 必填）</label>
+    <input type="text" name="Title" placeholder="来一个醒目的标题吧" style="background-color: rgb(204, 232, 207);" class="form-control">
+    <label>内容：（* 必填）</label>
+    <input type="text" name="Content" style="background-color: rgb(204, 232, 207);" class="form-control">
+</form>

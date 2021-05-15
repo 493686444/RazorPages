@@ -21,4 +21,10 @@
     <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Pages\Entity\Content\ArticlePublish - Copy.cshtml.cs">
+      <DependentUpon>ArticlePubish.cshtml.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
 </Project>
