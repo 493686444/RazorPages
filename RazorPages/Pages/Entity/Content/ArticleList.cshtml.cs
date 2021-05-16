@@ -27,7 +27,7 @@ namespace RazorPages.Pages
            
             viewArticles = NewArticles.Skip(pageIndex*4).Take(4).ToList();
 
-            ////这是找一个的时候
+            ////这是找一个的时候   //这个注释有没有用过 我也没忘
             //int id = Convert.ToInt32(Request.Query["id"][0]);
             //article = context.Articles.Find(id);
            

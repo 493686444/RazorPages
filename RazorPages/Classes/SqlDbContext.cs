@@ -11,6 +11,7 @@ namespace RazorPages.Classes
     {
         public DbSet<Article> Articles { get; set; }
         public DbSet<User> Users { set; get; }
+        public DbSet<Message> Messages { set; get; }
        
 
 
