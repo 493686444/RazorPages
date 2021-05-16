@@ -3,6 +3,16 @@
 @{
     DateTime datetime = new DateTime(2021, 5, 1);
 }
+@section upTitle{
+    月历
+}
+<div>
+    <label>这个地方有bug,没考虑6行的情况</label>
+    <div>第一天为周六 <p>>=30天(非2月)时                      加一行(共6行)</p></div>
+    <div>第一天为周5    <p>>=31天(1 3 5 7 8 10 12月)时    加一行(共6行)</p></div>
+
+</div>
+
 @switch (datetime.DayOfWeek)
 {
     case DayOfWeek.Sunday:
