@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -10,9 +11,8 @@ namespace RazorPages.Pages
 {
     public class RegisterModel : PageModel
     {
-        [BindProperty]
         public SqlDbContext context { set; get; } = new SqlDbContext();
-        [BindProperty]
+
         public User NewUser { set; get; } = new User();
         public string SecondPassword { set; get; }
         public void OnGet()
@@ -20,6 +20,10 @@ namespace RazorPages.Pages
         }
         public void OnPost() 
         {
+            if (!ModelState.IsValid)
+            { 
+                return;
+            }
             //检验两次密码的输入暂时搁置
             NewUser.Gender = true;//测试补充的内容
 

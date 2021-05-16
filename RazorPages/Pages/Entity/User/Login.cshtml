@@ -11,16 +11,19 @@
     用户登录
 }
 <form asp-page="/Pages/Entity/User/Login" method="post">
-        
+
     <label>用户名：（* 必填）</label>
-    <input asp-for="NewUser.Name" class="form-control"   placeholder="不是昵称，是登录用户名"/>
+    <span asp-validation-for="NewUser.Name"></span>
+    <input asp-for="NewUser.Name" class="form-control" placeholder="不是昵称，是登录用户名" />
 
     <label>密码：（* 必填）</label>
-    <input  type="password" asp-for="NewUser.password"class="form-control"placeholder="不少于4个字符" />
+    <span asp-validation-for="NewUser.password"></span>
+    <input type="password" asp-for="NewUser.password" class="form-control" placeholder="不少于4个字符" />
 
     <label>验证码：（* 必填）</label><br />@*验证码暂时搁置*@
-    <input  type="text" name="VerificationCode"  style="width:80px; height:34px;margin-bottom:10px" class="form-control"/><a href="/"></a>
+    <input type="text" name="VerificationCode" style="width:80px; height:34px;margin-bottom:10px" class="form-control" /><a href="/"></a>
 
+    <div>@ViewData["result"]</div>@*用作测试将来会删除掉*@
     <div class="submit">
 
         <input type="submit" class="btn btn-primary" value="提交">
