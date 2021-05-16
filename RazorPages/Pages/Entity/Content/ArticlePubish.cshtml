@@ -13,11 +13,15 @@
 </h2>
 <hr/>
 
-<form class="form-group">
+<form method="post" class="form-group" asp-page="/Pages/Entity/Content/ArticlePubish">
     <label>标题：（* 必填）</label>
-    <input type="text" name="Title" placeholder="来一个醒目的标题吧" style="background-color: rgb(204, 232, 207);" class="form-control">
+    <span asp-validation-for="article.Title"></span>
+    <input asp-for="article.Title" placeholder="来一个醒目的标题吧" style="background-color: rgb(204, 232, 207);" class="form-control">
+
     <label>内容：（* 必填）</label>
-    <input type="text" name="Content" style="background-color: rgb(204, 232, 207);" class="form-control">
-    <br/>
-    <input type="submit" value="发布为最新" class="btn btn-primary loading" >
+    <span asp-validation-for="article.Body"></span>
+    <input asp-for="article.Body" style="background-color: rgb(204, 232, 207);" class="form-control">
+
+    <br />
+    <input type="submit" value="发布为最新" class="btn btn-primary loading">
 </form>
