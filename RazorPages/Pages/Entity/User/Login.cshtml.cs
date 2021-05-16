@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using C=RazorPages.Classes;
@@ -15,6 +16,8 @@ namespace RazorPages.Pages.Entity
         public C.User DBUser { set; get; }
 
         public string AuthCode { set; get; }
+        public bool RememberMe { set; get; }
+
 
         public C.SqlDbContext context { set; get; } = new C.SqlDbContext();
         public void OnGet()
@@ -46,6 +49,8 @@ namespace RazorPages.Pages.Entity
                 }
             }
 
+            //CookieOptions cookie = new CookieOptions() {Expires=DateTime.Now.AddDays(14) };
+            Response.Cookies.Append("UserId",DBUser.Id.ToString() /*,cookie*/);
         }
     }
 }
