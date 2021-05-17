@@ -13,67 +13,19 @@
 </h2>
 <hr />
 
-<form method="post" asp-page="/Pages/Entity/Message/MyMessage">
-    <button type="submit" value="Delete" style="background-color: rgb(204, 232, 207) ;border:1px solid gray;" class="btn btn-default btn-xs">
-        <span class="fa fa-times-circle"></span>
-        删除
-    </button>
-
-
-    <div class="row visible-sm visible-md visible-lg">
-        <div class="col-sm-1"></div>
-        <div class="col-sm-1">时间</div>
-        <div class="col-sm-2">
-            <a zyf-message-filter="" data-toggle="tooltip" title="" data-original-title="筛选/退订">订阅种类 <span class="fa fa-cog"></span></a>
-        </div>
-        <div class="col-sm-8">内容</div>
-    </div>
-
-    @foreach (var item in Model.Messages)
+<form method="post">
+    @for (int i = 0; i < Model.Messages.Count; i++)
     {
-        <div class="row text-bold">
-            <div class="col-xs-2 col-sm-1">
-                <input checked="checked" id="Items_8__Selected" name="Items[8].Selected" type="checkbox" value="true"><input name="Items[8].Selected" type="hidden" value="false">
-                <input id="Items_8__Id" name="Items[8].Id" type="hidden" value="200">
-            </div>
+        <div>
+            <input asp-for="@Model.Messages[i].Selected">
 
-            <div class="col-xs-2 col-sm-1">
-                <small>
-                    <span class="fa fa-calendar"></span>
-                    @item.DateTime
-                </small>
-            </div>
+            <span> @Model.Messages[i].DateTime </span>
+            <span> @Model.Messages[i].Type </span>
+            <span> @Model.Messages[i].Content </span>
 
-            <div class="col-xs-8 col-sm-2">
-                <span class="fa fa-times-circle"></span>
-                @item.Type
-            </div>
-
-            <div class="col-xs-12 col-sm-8">
-                @item.Content
-            </div>
+            <input type="hidden" asp-for="@Model.Messages[i].Id" />
         </div>
+        <hr />
     }
-    留作参考:
-    <div class="row text-bold">
-        <div class="col-xs-2 col-sm-1">
-
-            <input checked="checked" data-val="true" data-val-required="Selected 字段是必需的。" id="Items_6__Selected" name="Items[6].Selected" type="checkbox" value="true" zyf-in-select-all=""><input name="Items[6].Selected" type="hidden" value="false">
-            <input data-val="true" data-val-number="字段 Id 必须是一个数字。" data-val-required="Id 字段是必需的。" id="Items_6__Id" name="Items[6].Id" type="hidden" value="215">
-        </div>
-        <div class="col-xs-2 col-sm-1" data-toggle="tooltip" title="" data-original-title="2021年03月05日 21点13分">
-            <small>
-                <span class="fa fa-calendar"></span>
-            </small>
-        </div>
-        <div class="col-xs-8 col-sm-2">
-            <a href="/Message/Unsubscribe?kind=CommentAgree" zyf-message-unsubscribe="">
-                <span class="fa fa-times-circle" data-toggle="tooltip" title="" data-original-title="退订"></span>
-            </a>
-            被点赞
-        </div>
-        <div class="col-xs-12 col-sm-8">
-            文章的评论<a class="text-info" href="http://localhost:41958/Article/3">简直太棒了！</a>被<a class="text-info" href="http://localhost:41958/User/6" zyf-show-contact="6">yezi</a>赞，获得<b class="iconfont icon-drips water"></b><a class="text-info" href="http://localhost:41958/FAQ/Credit">帮帮点</a> 奖励2点
-        </div>
-    </div>
+    <input type="submit"value="删除" />
 </form>
