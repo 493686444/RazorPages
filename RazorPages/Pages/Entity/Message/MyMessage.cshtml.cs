@@ -14,7 +14,6 @@ namespace RazorPages.Pages
         [BindProperty]
         public List<Message> Messages { get; set; }
         private SqlDbContext context = new SqlDbContext();
-
         public void OnGet()
         {
             Messages = context.Messages.Where(m => m.Author == 1).ToList();//取出来作者id为1的消息
@@ -25,7 +24,6 @@ namespace RazorPages.Pages
             {
                 return;
             }
-  
             foreach (var item in Messages)
             {
                 if (item.Selected)
@@ -36,6 +34,5 @@ namespace RazorPages.Pages
             context.SaveChanges();
             Messages = context.Messages.Where(m => m.Author == 1).ToList();
         }
-
     }
 }
