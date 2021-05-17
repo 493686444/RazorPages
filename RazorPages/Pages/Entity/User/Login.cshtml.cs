@@ -54,7 +54,7 @@ namespace RazorPages.Pages.Entity
             if (RememberMe)
             {
                 CookieOptions Options = new CookieOptions() { Expires = DateTime.Now.AddDays(14) };
-                Response.Cookies.Append("UserId", DBUser.Id.ToString(), Options);
+                Response.Cookies.Append("UserId", DBUser.Id.ToString(), Options);//登录页面刚刚加载完成的时候不可以清理缓存,否则页面报错
             }
 
         }

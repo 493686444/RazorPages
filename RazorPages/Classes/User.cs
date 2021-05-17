@@ -15,6 +15,6 @@ namespace RazorPages.Classes
 
         [Required(ErrorMessage = "请输入密码")]
         public string password { set; get; }
-        public bool Gender { set; get; }  
+        public bool Gender { set; get; } = true;//此处设置默认值,是测试的需要
     }
 }

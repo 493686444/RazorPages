@@ -41,6 +41,7 @@
 
 
     <label>用户名：（* 必填）</label>
+
     <span asp-validation-for="NewUser.Name"></span>
     <input asp-for="NewUser.Name" class="form-control" placeholder="可修改,不可重" />
 
@@ -54,12 +55,14 @@
     <label>验证码：（* 必填）</label><br />    @*暂时搁置验证码部分*@
     <input type="text" name="VerificationCode" style="width:80px; height:34px;margin-bottom:10px" class="form-control" /><a href="/"></a>
 
+    <span>@ViewData["Error"] </span>
+
     <div class="submit">
         <input type="submit" value="提交" class="btn btn-primary">
         <input type="reset" value="重置" style="border:1px solid gray " class="btn btn-default">
 
         <span class="pull-right btn">
-            <a href="/" style="margin-left:10px;">
+            <a href="/Entity/User/Login" style="margin-left:10px;">
                 <span class="fa fa-sign-in"></span>
                 登录
             </a>

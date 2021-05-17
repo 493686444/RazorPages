@@ -12,7 +12,7 @@ namespace RazorPages.Pages
     public class RegisterModel : PageModel
     {
         public SqlDbContext context { set; get; } = new SqlDbContext();
-
+        [BindProperty]
         public User NewUser { set; get; } = new User();
         public string SecondPassword { set; get; }
         public void OnGet()
@@ -24,8 +24,13 @@ namespace RazorPages.Pages
             { 
                 return;
             }
-            //检验两次密码的输入暂时搁置
-            NewUser.Gender = true;//测试补充的内容
+            
+            if (context.Users.Where(u=>u.Name== NewUser.Name).Select(u=>u.Name).ToList().Contains( NewUser.Name )) //此处使用linq语法更简单
+            {
+                ViewData["Error"] = "已存在该用户";
+                return;
+            }/*else nothing*/
+            
 
             context.Users.Add(NewUser);
             context.SaveChanges();
