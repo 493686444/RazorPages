@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using C=RazorPages.Classes;
+using C = RazorPages.Classes;
 
 namespace RazorPages.Pages.Entity
 {
@@ -16,15 +16,18 @@ namespace RazorPages.Pages.Entity
         public C.User DBUser { set; get; }
 
         public string AuthCode { set; get; }
+
+        [BindProperty]
         public bool RememberMe { set; get; }
+
 
 
         public C.SqlDbContext context { set; get; } = new C.SqlDbContext();
         public void OnGet()
         {
-           
+
         }
-        public void OnPost() 
+        public void OnPost()
         {
             if (!ModelState.IsValid)
             {
@@ -35,7 +38,6 @@ namespace RazorPages.Pages.Entity
             if (DBUser is null)
             {
                 ViewData["result"] = "该用户不存在";
-
             }
             else
             {
@@ -49,8 +51,12 @@ namespace RazorPages.Pages.Entity
                 }
             }
 
-            //CookieOptions cookie = new CookieOptions() {Expires=DateTime.Now.AddDays(14) };
-            Response.Cookies.Append("UserId",DBUser.Id.ToString() /*,cookie*/);
+            if (RememberMe)
+            {
+                CookieOptions Options = new CookieOptions() { Expires = DateTime.Now.AddDays(14) };
+                Response.Cookies.Append("UserId", DBUser.Id.ToString(), Options);
+            }
+
         }
     }
 }
