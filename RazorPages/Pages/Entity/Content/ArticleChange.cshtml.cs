@@ -11,6 +11,7 @@ namespace RazorPages.Pages
     public class ArticleChangeModel : PageModel
     {
         SqlDbContext Context { set; get; } = new SqlDbContext();
+    
         public int id { set; get; } = 1;//点击之后才会生成id,没有点击只有页面/,所以暂时搁置有 1 代替
         [BindProperty]
         public Article article { get; set; } = new Article();
@@ -18,6 +19,11 @@ namespace RazorPages.Pages
         {
             article.Id = id;
             article = Context.Articles.Find(article.Id);
+            bool hasUserName = Request.Cookies.TryGetValue("User.Name", out string username);
+            if (hasUserName)
+            {
+                ViewData["User.Name"] = username;
+            } //else: 如果没有cookie，nothing
         }
         public void OnPost()
         {

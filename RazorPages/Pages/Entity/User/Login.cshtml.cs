@@ -12,7 +12,7 @@ namespace RazorPages.Pages.Entity
     public class LoginModel : PageModel
     {
         [BindProperty]//注意此处,即便User的内部已经有model验证了,但是这里还要加上绑定才行
-        public C.User NewUser { set; get; }
+        public C.User User { set; get; }
         public C.User DBUser { set; get; }
 
         public string AuthCode { set; get; }
@@ -25,7 +25,7 @@ namespace RazorPages.Pages.Entity
         public C.SqlDbContext context { set; get; } = new C.SqlDbContext();
         public void OnGet()
         {
-
+            
         }
         public void OnPost()
         {
@@ -33,7 +33,7 @@ namespace RazorPages.Pages.Entity
             {
                 return;
             }
-            DBUser = context.Users.Where(a => a.Name == NewUser.Name).FirstOrDefault();
+            DBUser = context.Users.Where(a => a.Name == User.Name).FirstOrDefault();
 
             if (DBUser is null)
             {
@@ -41,7 +41,7 @@ namespace RazorPages.Pages.Entity
             }
             else
             {
-                if (NewUser.password == DBUser.password)
+                if (User.password == DBUser.password)
                 {
                     ViewData["result"] = "登录成功";
                 }
@@ -54,7 +54,7 @@ namespace RazorPages.Pages.Entity
             if (RememberMe)
             {
                 CookieOptions Options = new CookieOptions() { Expires = DateTime.Now.AddDays(14) };
-                Response.Cookies.Append("UserId", DBUser.Id.ToString(), Options);//登录页面刚刚加载完成的时候不可以清理缓存,否则页面报错
+                Response.Cookies.Append("User.Name", DBUser.Name.ToString(), Options);  //登录页面刚刚加载完成的时候不可以清理缓存,否则页面报错
             }
 
         }

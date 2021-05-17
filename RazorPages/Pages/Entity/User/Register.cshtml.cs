@@ -18,22 +18,30 @@ namespace RazorPages.Pages
         public void OnGet()
         {
         }
-        public void OnPost() 
+
+        public IActionResult OnPost() 
         {
             if (!ModelState.IsValid)
             { 
-                return;
+                return Page();
             }
-            
-            if (context.Users.Where(u=>u.Name== NewUser.Name).Select(u=>u.Name).ToList().Contains( NewUser.Name )) //此处使用linq语法更简单
+            if (context.Users
+                .Where(u=>u.Name== NewUser.Name)
+                .Select(u=>u.Name)
+                .ToList()
+                .Contains( NewUser.Name )) //此处使用linq语法更简单
             {
                 ViewData["Error"] = "已存在该用户";
-                return;
+                return Page();
             }/*else nothing*/
-            
 
             context.Users.Add(NewUser);
             context.SaveChanges();
+
+            Response.Cookies.Append("User.Name", NewUser.Name.ToString());
+            Response.Cookies.Append("User.password", NewUser.password.ToString());
+
+            return RedirectToPage("/Entity/User/Login");
         }
     }
 }
