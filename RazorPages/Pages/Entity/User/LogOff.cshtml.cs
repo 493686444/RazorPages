@@ -12,7 +12,7 @@ namespace RazorPages.Pages.Entity.User
         public IActionResult OnGet()
         {
             Response.Cookies.Delete("User.Name");
-            return Redirect(Request.Headers["referer"]);
+            return RedirectToPage("/Entity/User/Login");
         }
     }
 }
