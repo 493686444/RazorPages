@@ -18,11 +18,11 @@ namespace RazorPages.Pages
         {
             Messages = context.Messages.Where(m => m.Author == 1).ToList();//取出来作者id为1的消息
         }
-        public void OnPost()
+        public IActionResult OnPost()
         {            
             if (!ModelState.IsValid)
             {
-                return;
+                return Page();
             }
             foreach (var item in Messages)
             {
@@ -32,7 +32,7 @@ namespace RazorPages.Pages
                 }
             }
             context.SaveChanges();
-            Messages = context.Messages.Where(m => m.Author == 1).ToList();
+            return RedirectToPage();   //重定向到这个page
         }
     }
 }
