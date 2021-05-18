@@ -22,18 +22,18 @@ namespace RazorPages.Pages.Entity
 
 
 
-        public C.SqlDbContext context { set; get; } = new C.SqlDbContext();
+        public C.SqlDbContext DBContext { set; get; } = new C.SqlDbContext();
         public void OnGet()
         {
             
         }
-        public void OnPost()
+        public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
             {
-                return;
+                return Page();
             }
-            DBUser = context.Users.Where(a => a.Name == User.Name).FirstOrDefault();
+            DBUser = DBContext.Users.Where(a => a.Name == User.Name).FirstOrDefault();
 
             if (DBUser is null)
             {
@@ -50,13 +50,18 @@ namespace RazorPages.Pages.Entity
                     ViewData["result"] = "密码错误";
                 }
             }
-
+            CookieOptions Options;
             if (RememberMe)
             {
-                CookieOptions Options = new CookieOptions() { Expires = DateTime.Now.AddDays(14) };
-                Response.Cookies.Append("User.Name", DBUser.Name.ToString(), Options);  //登录页面刚刚加载完成的时候不可以清理缓存,否则页面报错
+                 Options = new CookieOptions() { Expires = DateTime.Now.AddDays(14) };
+                //登录页面刚刚加载完成的时候不可以清理缓存,否则页面报错
             }
-
+            else
+            {
+                Options = new CookieOptions() { Expires = DateTime.Now.AddDays(1) };
+            }
+            Response.Cookies.Append("User.Name", DBUser.Name.ToString(), Options);
+            return Redirect(Request.Headers["referer"]);   //暂时搁置 登陆之后返回之前的页面
         }
     }
 }
