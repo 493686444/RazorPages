@@ -109,12 +109,23 @@
     </div>
 
     <br />
+    @{
+        bool UnAppear = Context.Request.Cookies.TryGetValue("UnAppear", out string unappear);
+        if (!UnAppear)
+        {
+        <div>
+            <p>这是一个通知</p>
+            <a asp-page="/UnAppear">不再显式</a>
+        </div>
+        } /*else*/
+    }
+    <br />
     @RenderBody()
     <br />
 
     <footer class="container ">
         <!-- 倒数第二行 -->
-        <div>
+        <div>   
             <a href=" ">关于我们</a>|
             <a href=" ">源栈课堂</a>|
             <a href=" ">常见问题</a>|

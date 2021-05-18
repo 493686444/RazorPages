@@ -61,7 +61,7 @@ namespace RazorPages.Pages.Entity
                 Options = new CookieOptions() { Expires = DateTime.Now.AddDays(1) };
             }
             Response.Cookies.Append("User.Name", DBUser.Name.ToString(), Options);
-            return Redirect(Request.Headers["referer"]);   //暂时搁置 登陆之后返回之前的页面
+            return Page();
         }
     }
 }
