@@ -49,7 +49,7 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a asp-page="/Entity/Content/ArticleList" class="nav-link dropdown-toggle" >
+                        <a asp-page="/Entity/Content/ArticleList" class="nav-link dropdown-toggle">
                             文章
                         </a>
                         <div class="dropdown-menu">
@@ -58,16 +58,27 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        @if (ViewData["User.Name"] == null)
-                        {
-                            <a asp-page="/Entity/User/Login" class="nav-link dropdown-toggle">
-                                <span class="fa fa-user-secret"></span>
-                                未登录
-                            </a>
-                        }
-                        else
-                        {
-                            <span>欢迎：@ViewData["User.Name"]</span>
+                        @*
+                            笔记: 这个地方除了视频讲解的方式,我自己又尝试了另一种方法
+                                     开始时: Model.Request.Cookies.TryGetValue("User.Name", out string username);
+                                               这个方法因为在 Layout(外置环境)中,又因为一个page及其所有的Laout只可以有一个model,所以它掉用不了model(声明了model的才可以调用)
+                                     接下来: 飞哥对我的想法进行了修补 Context.Request.Cookies.TryGetValue("User.Name", out string username);
+                                                这个方法完美的解决了,视频和我自己方法中的缺陷
+                        *@
+                        @{
+                            bool hasUserName = Context.Request.Cookies.TryGetValue("User.Name", out string username);
+
+                            if (!hasUserName)
+                            {
+                                <a asp-page="/Entity/User/Login" class="nav-link dropdown-toggle">
+                                    <span class="fa fa-user-secret"></span>
+                                    未登录
+                                </a>
+                            }
+                            else
+                            {
+                                <span>欢迎：@username</span>
+                            }
                         }
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="#">登录</a>

@@ -19,11 +19,6 @@ namespace RazorPages.Pages
         {
             article.Id = id;
             article = Context.Articles.Find(article.Id);
-            bool hasUserName = Request.Cookies.TryGetValue("User.Name", out string username);
-            if (hasUserName)
-            {
-                ViewData["User.Name"] = username;
-            } //else: 如果没有cookie，nothing
         }
         public void OnPost()
         {
