@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Primitives;
 using C = RazorPages.Classes;
 
 namespace RazorPages.Pages.Entity
@@ -62,9 +63,16 @@ namespace RazorPages.Pages.Entity
             }
             Response.Cookies.Append("User.Name", DBUser.Name.ToString(), Options);
 
-            return RedirectToPage(Request.Query["parameter"][0]);
-
-            //return RedirectToPage();
+            bool result = Request.Query.TryGetValue("parameter", out StringValues parameter);
+            if (result)
+            {
+                return RedirectToPage(parameter);
+            }
+            else
+            {
+                return RedirectToPage();
+            }
+          
         }
     }
 }
