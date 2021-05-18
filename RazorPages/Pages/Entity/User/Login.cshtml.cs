@@ -61,7 +61,10 @@ namespace RazorPages.Pages.Entity
                 Options = new CookieOptions() { Expires = DateTime.Now.AddDays(1) };
             }
             Response.Cookies.Append("User.Name", DBUser.Name.ToString(), Options);
-            return Page();
+
+            return RedirectToPage(Request.Query["parameter"][0]);
+
+            //return RedirectToPage();
         }
     }
 }

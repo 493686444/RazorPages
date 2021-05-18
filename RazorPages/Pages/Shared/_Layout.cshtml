@@ -65,12 +65,13 @@
                                      接下来: 飞哥对我的想法进行了修补 Context.Request.Cookies.TryGetValue("User.Name", out string username);
                                                 这个方法完美的解决了,视频和我自己方法中的缺陷
                         *@
+           
                         @{
                             bool hasUserName = Context.Request.Cookies.TryGetValue("User.Name", out string username);
 
                             if (!hasUserName)
                             {
-                                <a asp-page="/Entity/User/Login" class="nav-link dropdown-toggle">
+                                <a asp-page="/Entity/User/Login" asp-route-parameter="@ViewData["parameter"]" class="nav-link dropdown-toggle">
                                     <span class="fa fa-user-secret"></span>
                                     登录
                                 </a>

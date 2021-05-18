@@ -19,6 +19,7 @@ namespace RazorPages.Pages
         {
             article.Id = id;
             article = Context.Articles.Find(article.Id);
+            ViewData["parameter"] = "/Entity/Content/ArticleChange";
         }
         public void OnPost()
         {
