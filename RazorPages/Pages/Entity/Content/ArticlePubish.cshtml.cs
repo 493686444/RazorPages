@@ -8,6 +8,7 @@ using RazorPages.Classes;
 
 namespace RazorPages.Pages
 {
+    [NeedLogOn]
     public class ArticlePublishModel: PageModel
     {
         SqlDbContext Context { set; get; } = new SqlDbContext();

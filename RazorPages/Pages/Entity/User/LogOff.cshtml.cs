@@ -9,6 +9,7 @@ namespace RazorPages.Pages.Entity.User
 {
     public class LogOffModel : PageModel
     {
+
         public IActionResult OnGet()
         {
             Response.Cookies.Delete("User.Name");

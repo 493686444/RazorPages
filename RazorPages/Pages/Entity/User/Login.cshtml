@@ -11,7 +11,9 @@
     用户登录
 }
 <form asp-page="/Pages/Entity/User/Login" method="post">
-
+    <div>
+        <h3>  @ViewData["tooltip"]</h3>
+    </div>
     <label>用户名：（* 必填）</label>
     <span asp-validation-for="User.Name"></span>
     <input asp-for="User.Name" class="form-control" placeholder="不是昵称，是登录用户名" />

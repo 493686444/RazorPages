@@ -8,9 +8,9 @@ using RazorPages.Classes;
 
 namespace RazorPages.Pages
 {
+    [NeedLogOn]
     public class MyMessageModel : PageModel
     {
-
         [BindProperty]
         public List<Message> Messages { get; set; }
         private SqlDbContext context = new SqlDbContext();

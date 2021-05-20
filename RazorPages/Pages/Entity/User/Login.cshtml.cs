@@ -26,7 +26,15 @@ namespace RazorPages.Pages.Entity
         public C.SqlDbContext DBContext { set; get; } = new C.SqlDbContext();
         public void OnGet()
         {
-            
+            bool exist = Request.Query.TryGetValue("parameter", out StringValues parameter);
+            if (exist)
+            {
+                ViewData["tooltip"] = "ÇëÏÈµÇÂ¼";
+            }
+            else
+            {
+               
+            }
         }
         public IActionResult OnPost()
         {
