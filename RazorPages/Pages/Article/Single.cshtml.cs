@@ -15,7 +15,7 @@ namespace RazorPages.Pages.Article
         public C.Article Article { get; set; } = new C.Article();
         public void OnGet()
         {
-            int id = Convert.ToInt32(RouteData.Values["Id"]);
+            int id = Convert.ToInt32(Request.Query["Id"][0]);
             Article = context.Articles.Find(id);
         }
     }

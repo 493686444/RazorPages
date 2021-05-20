@@ -12,8 +12,8 @@ namespace RazorPages.Pages.Article
     public class EditModel : PageModel
     {
         SqlDbContext Context { set; get; } = new SqlDbContext();
-    
-        public int id { set; get; } = 1;//点击之后才会生成id,没有点击只有页面/,所以暂时搁置有 1 代替
+
+        public int id { set; get; } = 1;
         [BindProperty]
         public C.Article article { get; set; } = new C.Article();
         public void OnGet()

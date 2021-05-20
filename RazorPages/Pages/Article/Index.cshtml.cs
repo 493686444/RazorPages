@@ -18,7 +18,7 @@ namespace RazorPages.Pages.Article
 
         public void OnGet()
         {
-            pageIndex = Convert.ToInt32(RouteData.Values["pageIndex"]);
+            pageIndex = Convert.ToInt32(Request.Query["pageIndex"][0]);
             NewArticles = context.Articles.Where(a => a.Title != null).ToList();
             viewArticles = NewArticles.Skip(pageIndex*4).Take(4).ToList();
 
