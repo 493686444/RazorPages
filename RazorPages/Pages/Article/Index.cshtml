@@ -8,7 +8,7 @@
 }
 
 <!--左01-->
-@foreach (var item in Model.viewArticles)
+@foreach (var item in Model.PageArticles)
 {
     <div class="n-article-box">
         <span class="text-muted">
@@ -18,7 +18,7 @@
         <p style="font-size:14px" class="float-right">作者：<a style="font-size:14px" href="#">@item.Author </a></p>
         <br />
         <h5 class="n-margin-y">
-            <a href="/Entity/Content/ArticleSingle?id=@item.Id ">@item.Title</a>
+            <a href="/Article/Single?id=@item.Id ">@item.Title</a>
         </h5>
         <p class="n-margin-y">
             @item.Body
@@ -64,7 +64,7 @@
                         </a>
                     </li>
 
-                    @for (int i = 0; i < Math.Ceiling((decimal)Model.NewArticles.Count / 4); i++)
+                    @for (int i = 0; i < Math.Ceiling((decimal)Model.AllArticles.Count / 4); i++)
                     {
                         <li class="page-item">
                             <a  href="/Entity/Content/ArticleList?pageIndex=@i" class="page-link">@(i+1)</a>

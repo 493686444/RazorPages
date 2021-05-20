@@ -1,24 +1,9 @@
-﻿@*@model RazorPages.Pages.UserPageModel
+﻿@model RazorPages.Classes.User
 <div>
     <label>Name</label>
     <p>@Model.Name</p>
 
     <label>Id</label>
     <span>@Model.Id</span>
-    <a href="/Entity/User/@Model.Id"></a>
-
-    <label>Level</label>
-    @if (@Model.Level < 3)
-    {
-        <span style="color:gray">灰 @Model.Level</span>
-    }
-    else if (@Model.Level > 8)
-    {
-        <span style="color:red">红  @Model.Level</span>
-    }
-    else
-    {
-        <span style="color:blue">蓝  @Model.Level</span>
-    }
-
-</div>*@
+    <a href="/User/Index?Id=@Model.Id"></a>
+</div>
