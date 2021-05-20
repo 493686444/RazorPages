@@ -5,21 +5,22 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using RazorPages.Classes;
+using C=RazorPages.Classes;
 
-namespace RazorPages.Pages
+namespace RazorPages.Pages.Article
 {
-    public class ArticleChangeModel : PageModel
+    public class EditModel : PageModel
     {
         SqlDbContext Context { set; get; } = new SqlDbContext();
     
         public int id { set; get; } = 1;//点击之后才会生成id,没有点击只有页面/,所以暂时搁置有 1 代替
         [BindProperty]
-        public Article article { get; set; } = new Article();
+        public C.Article article { get; set; } = new C.Article();
         public void OnGet()
         {
             article.Id = id;
             article = Context.Articles.Find(article.Id);
-            ViewData["parameter"] = "/Entity/Content/ArticleChange";
+            ViewData["parameter"] = "/Article/Edit";
         }
         public void OnPost()
         {

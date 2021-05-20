@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace RazorPages.Pages
+namespace RazorPages.Pages.User
 {
     public class LogOffModel : PageModel
     {
@@ -13,7 +13,7 @@ namespace RazorPages.Pages
         public IActionResult OnGet()
         {
             Response.Cookies.Delete("User.Name");
-            return RedirectToPage("/Entity/User/Login");
+            return Redirect($"/User/LogIn?parameter={HttpContext.Request.Path.Value}");
         }
     }
 }

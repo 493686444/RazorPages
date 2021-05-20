@@ -8,9 +8,9 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Primitives;
 using C = RazorPages.Classes;
 
-namespace RazorPages.Pages
+namespace RazorPages.Pages.User
 {
-    public class LoginModel : PageModel
+    public class LogInModel : PageModel
     {
         [BindProperty]//注意此处,即便User的内部已经有model验证了,但是这里还要加上绑定才行
         public C.User User { set; get; }

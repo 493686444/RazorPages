@@ -5,15 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using RazorPages.Classes;
+using C=RazorPages.Classes;
 
-namespace RazorPages.Pages
+namespace RazorPages.Pages.Article
 {
     [NeedLogOn]
-    public class ArticlePublishModel: PageModel
+    public class PubishModel : PageModel
     {
         SqlDbContext Context { set; get; } = new SqlDbContext();
         [BindProperty]
-        public Article article { get; set; } = new Article();
+        public C.Article article { get; set; } = new C.Article();
         public void OnGet( )
         {
             

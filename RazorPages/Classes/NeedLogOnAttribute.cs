@@ -18,7 +18,7 @@ namespace RazorPages.Classes
             }
             else
             {
-                context.Result = new RedirectResult($"/Entity/User/Login?parameter={context.HttpContext.Request.Path.Value}");
+                context.Result = new RedirectResult($"/User/LogIn?parameter={context.HttpContext.Request.Path.Value}");
             }
         }
     }

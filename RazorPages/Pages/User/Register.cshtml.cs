@@ -7,13 +7,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using RazorPages.Classes;
 
-namespace RazorPages.Pages
+namespace RazorPages.Pages.User
 {
     public class RegisterModel : PageModel
     {
         public SqlDbContext context { set; get; } = new SqlDbContext();
         [BindProperty]
-        public User NewUser { set; get; } = new User();
+        public RazorPages.Classes.User NewUser { set; get; } = new RazorPages.Classes.User();
         public string SecondPassword { set; get; }
         public void OnGet()
         {

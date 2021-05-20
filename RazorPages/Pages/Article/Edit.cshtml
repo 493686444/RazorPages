@@ -1,5 +1,5 @@
-﻿@page
-@model RazorPages.Pages.ArticleChangeModel
+﻿@page "/Article/Edit/{Id}"
+@model RazorPages.Pages.Article.EditModel
 @{
     Layout = "_ContentCreate";
 }
@@ -13,7 +13,7 @@
 </h2>
 <hr />
 
-<form method="post" class="form-group" asp-page="/Pages/Entity/Content/ArticleChange">
+<form method="post" class="form-group" asp-page="/Article/Edit">
     <label>标题：（* 必填）</label>
     <span asp-validation-for="article.Title"></span>
     <input asp-for="article.Title" value="@Model.article.Title" placeholder="来一个醒目的标题吧" style="background-color: rgb(204, 232, 207);" class="form-control">

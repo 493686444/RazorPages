@@ -1,5 +1,5 @@
 ﻿@page
-@model RazorPages.Pages.LoginModel
+@model RazorPages.Pages.User.LogInModel
 @{
     Layout = "_User";
 }
@@ -10,7 +10,7 @@
 @section upTitle {
     用户登录
 }
-<form asp-page="/Pages/Entity/User/Login" method="post">
+<form asp-page="/User/Login" method="post">
     <div>
         <h3>  @ViewData["tooltip"]</h3>
     </div>
@@ -36,7 +36,7 @@
 
         <span class="pull-right btn">
             <a href="">(｡ŏ_ŏ) 忘了</a>
-            <a asp-page="/Entity/User/Register" style="margin-left:10px;">
+            <a asp-page="/User/Register" style="margin-left:10px;">
                 <span class="fa fa-registered"></span>
                 注册
             </a>

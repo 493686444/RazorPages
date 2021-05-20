@@ -5,14 +5,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using RazorPages.Classes;
+using C=RazorPages.Classes;
 
-namespace RazorPages.Pages
+namespace RazorPages.Pages.Message
 {
     [NeedLogOn]
     public class MyMessageModel : PageModel
     {
         [BindProperty]
-        public List<Message> Messages { get; set; }
+        public List<C.Message> Messages { get; set; }
         private SqlDbContext context = new SqlDbContext();
         public void OnGet()
         {

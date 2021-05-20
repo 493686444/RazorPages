@@ -5,17 +5,18 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using RazorPages.Classes;
+using C=RazorPages.Classes;
 
-namespace RazorPages.Pages
+namespace RazorPages.Pages.Article
 {
-    public class ArticleSingleModel : PageModel
+    public class SingleModel : PageModel
     {
         public SqlDbContext context = new SqlDbContext();
-        public Article Article { get; set; } = new Article();
+        public C.Article Article { get; set; } = new C.Article();
         public void OnGet()
         {
-            int id = Convert.ToInt32(Request.Query["id"][0]);
-            Article=context.Articles.Find(id);
+            int id = Convert.ToInt32(RouteData.Values["Id"]);
+            Article = context.Articles.Find(id);
         }
     }
 }

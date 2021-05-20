@@ -5,13 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Pages\Article\**" />
-    <Content Remove="Pages\Article\**" />
-    <EmbeddedResource Remove="Pages\Article\**" />
-    <None Remove="Pages\Article\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.6">
@@ -19,12 +12,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Pages\Entity\Content\ArticlePublish - Copy.cshtml.cs">
-      <DependentUpon>ArticlePubish.cshtml.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
 
 </Project>
