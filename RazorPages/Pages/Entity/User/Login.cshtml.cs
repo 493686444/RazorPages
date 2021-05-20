@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Primitives;
 using C = RazorPages.Classes;
 
-namespace RazorPages.Pages.Entity
+namespace RazorPages.Pages
 {
     public class LoginModel : PageModel
     {

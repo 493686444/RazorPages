@@ -4,12 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using RazorPages.Classes;
 
 namespace RazorPages.Pages
 {
-    [NeedLogOn]
-    public class ContactWayModel : PageModel
+    public class UserPageModel : PageModel
     {
         public void OnGet()
         {
