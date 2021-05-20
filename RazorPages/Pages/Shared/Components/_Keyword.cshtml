@@ -1,0 +1,11 @@
+﻿@using RazorPages.Classes
+@model IList<Keyword>
+@foreach (var item in Model)
+{
+    <a>
+        <span class="badge black-block black-box" style=" font-size: 20.5px; ">
+            @item.Name
+        </span>
+    </a>
+}
+

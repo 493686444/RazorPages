@@ -21,7 +21,7 @@ namespace RazorPages.Classes
         public string Body { get; set; }  
         public DateTime CreateTime { get; set; }
         public User Author { get; set; }
-       public KeyWord ArticleKeyWord { set; get; }
+       public Keyword ArticleKeyWord { set; get; }
     }
 }
 

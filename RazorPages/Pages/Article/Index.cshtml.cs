@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using RazorPages.Classes;
-using C=RazorPages.Classes;
+using C = RazorPages.Classes;
 
 namespace RazorPages.Pages.Article
 {
@@ -20,11 +20,11 @@ namespace RazorPages.Pages.Article
         {
             pageIndex = Convert.ToInt32(Request.Query["pageIndex"][0]);
             AllArticles = context.Articles.Where(a => a.Title != null).ToList();
-            PageArticles = AllArticles.Skip(pageIndex*4).Take(4).ToList();
+            PageArticles = AllArticles.Skip(pageIndex * 4).Take(4).ToList();
         }
-        public void OnPost() 
+        public void OnPost()
         {
-         
+
         }
     }
 }

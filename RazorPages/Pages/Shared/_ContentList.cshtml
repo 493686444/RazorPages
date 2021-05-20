@@ -20,17 +20,10 @@
                     关键字
                 </div>
                 <hr />
-                <a href="#">
-                    <span class="badge black-block black-box" style=" font-size: 20.5px; ">
-                        操作系统
-                    </span>
-                </a>
-                <a href="#">
-                    <span class="badge black-block black-box" style=" font-size: 20.5px; ">
-                        html
-                    </span>
-                </a>
 
+                @* VC 部分*@
+                <vc:_keyword></vc:_keyword>
+                
                 <hr />
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="直接输入关键字查找" aria-label="Recipient's username" aria-describedby="basic-addon2">
@@ -91,7 +84,7 @@
 
 
     <!--页码 内容-->
-   
+
     @RenderSection("pages")
 
 </main>
